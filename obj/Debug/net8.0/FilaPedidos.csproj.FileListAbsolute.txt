@@ -1,0 +1,14 @@
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\bin\Debug\net8.0\FilaPedidos.exe
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\bin\Debug\net8.0\FilaPedidos.deps.json
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\bin\Debug\net8.0\FilaPedidos.runtimeconfig.json
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\bin\Debug\net8.0\FilaPedidos.dll
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\bin\Debug\net8.0\FilaPedidos.pdb
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.AssemblyInfoInputs.cache
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.AssemblyInfo.cs
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.csproj.CoreCompileInputs.cache
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.dll
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\refint\FilaPedidos.dll
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.pdb
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.genruntimeconfig.cache
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\ref\FilaPedidos.dll
