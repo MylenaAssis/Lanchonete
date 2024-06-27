@@ -4,8 +4,6 @@
     {
         Queue<int> filaClientes = new Queue<int>();
 
-
-
         void opcoesMenu()
         {
             Console.WriteLine("*****MENU*****");
@@ -48,7 +46,7 @@
             //criando id aleatorio para o cliente
             Random random = new Random();
             int idCliente = random.Next();
-            Console.WriteLine(idCliente);
+            
 
             //inserindo cliente na fila
 

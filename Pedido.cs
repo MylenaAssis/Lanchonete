@@ -8,11 +8,14 @@ namespace FilaPedidos
 {
     internal class Pedido
     {
-        List<Item> itens = new List<Item>();
+        private int Id { get; set; }
 
-        public void adicionarItem(Item item)
+        public List<Item> Itens = new List<Item>();
+
+        public void ExibirPedido()
         {
-            itens.Add(item);
+            Console.WriteLine(Id);
+            //imprimir lista de itens
         }
     }
 }
