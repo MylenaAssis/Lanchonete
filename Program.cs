@@ -2,6 +2,10 @@
 {
     public static void Main(string[] args)
     {
+        Queue<int> filaClientes = new Queue<int>();
+
+
+
         void opcoesMenu()
         {
             Console.WriteLine("*****MENU*****");
@@ -41,9 +45,25 @@
 
         void InserirCliente()
         {
+            //criando id aleatorio para o cliente
             Random random = new Random();
             int idCliente = random.Next();
             Console.WriteLine(idCliente);
+
+            //inserindo cliente na fila
+
+            filaClientes.Enqueue(idCliente);
+
+            //imprimindo clientes
+            foreach (int idClientes in filaClientes)
+            {
+                Console.WriteLine(idCliente);
+            }
+
+            //limpa console e reexibe menu
+            Thread.Sleep(4000);
+            Console.Clear();
+            opcoesMenu();
         }
 
         opcoesMenu();

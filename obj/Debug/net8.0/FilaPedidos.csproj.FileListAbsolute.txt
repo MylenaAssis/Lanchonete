@@ -12,3 +12,4 @@ C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\refi
 C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.pdb
 C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.genruntimeconfig.cache
 C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\ref\FilaPedidos.dll
+C:\Users\mylena.assis\source\repos\FilaPedidos\FilaPedidos\obj\Debug\net8.0\FilaPedidos.sourcelink.json
