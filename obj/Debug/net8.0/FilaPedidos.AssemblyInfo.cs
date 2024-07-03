@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FilaPedidos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7e498ce81b68a252952182adcde56f3314e83b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6c86b030b76729678af02298526e777708201e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("FilaPedidos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FilaPedidos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

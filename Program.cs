@@ -1,18 +1,27 @@
-﻿class Program
+﻿using FilaPedidos.Modelo;
+using System.Xml.Serialization;
+
+class Program
 {
+
     public static void Main(string[] args)
     {
-        Queue<int> filaClientes = new Queue<int>();
+        
+        Queue<object> filaPedidos = new Queue<object>();
+        Queue<object> filaReservaPedidos = new Queue<object>();
+        int tamanho = filaPedidos.Count();
+        int tamanhoMaximo = 3;
 
         void opcoesMenu()
         {
-            Console.WriteLine("*****MENU*****");
-            Console.WriteLine("1. Inserir cliente na fila");
-            Console.WriteLine("2. Atender próximo cliente");
-            Console.WriteLine("3. Exibir próximo cliente");
-            Console.WriteLine("4. Verificar tamanho da fila");
-            Console.WriteLine("5. Sair");
-            Console.WriteLine("Selecione uma opção: ");
+            Console.WriteLine("\n*****MENU*****");
+            Console.WriteLine("\n1. Inserir pedido na fila pelo nome");
+            Console.WriteLine("2. Inserir pedido na fila pelo id");
+            Console.WriteLine("3. Atender próximo pedido");
+            Console.WriteLine("4. Exibir próximo pedido");
+            Console.WriteLine("5. Verificar tamanho da fila");
+            Console.WriteLine("6. Sair");
+            Console.WriteLine("\nSelecione uma opção: ");
             string opcaoSelecionada = Console.ReadLine()!;
 
             int opcaoSelecionadaNumerica = int.Parse(opcaoSelecionada);
@@ -20,19 +29,22 @@
             switch (opcaoSelecionadaNumerica)
             {
                 case 1:
-                    InserirCliente();
+                    InserirPedidoNome();
                     break;
                 case 2:
-                    //AtenderProximoCliente;
+                    InserirPedido();
                     break;
                 case 3:
-                    //ExibirProximoCliente;
+                    AtenderProximoPedido();
                     break;
                 case 4:
-                    //VerificarTamanhoFila();
+                    ExibirProximoPedido();
                     break;
                 case 5:
-                    Console.WriteLine("Tchau! =)");
+                    VerificarTamanhoFila();
+                    break;
+                case 6:
+                    Console.WriteLine("\nTchau! =)");
                     break;
                 default:
                     Console.WriteLine("Opção inválida!");
@@ -41,22 +53,142 @@
 
         }
 
-        void InserirCliente()
+        void InserirPedidoNome()
         {
-            //criando id aleatorio para o cliente
+            Console.WriteLine("Insira o nome do Cliente: ");
+            string nome = Console.ReadLine()!;
+            if (tamanho < tamanhoMaximo)
+            {
+                filaPedidos.Enqueue(nome);
+                Console.WriteLine("\nPedido recebido, aguarde atendimento.");
+
+                Console.WriteLine("\nFILA:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nProduto esgotado, pedido inserido na fila de espera.");
+                filaReservaPedidos.Enqueue(nome);
+
+                Console.WriteLine("\nFILA DE ESPERA:");
+                foreach (object id in filaReservaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+            }
+
+            //limpa console e reexibe menu
+            Thread.Sleep(2000);
+            Console.Clear();
+            opcoesMenu();
+        }
+
+        void InserirPedido()
+        {
             Random random = new Random();
             int idCliente = random.Next();
             
-
-            //inserindo cliente na fila
-
-            filaClientes.Enqueue(idCliente);
-
-            //imprimindo clientes
-            foreach (int idClientes in filaClientes)
+            if (tamanho < tamanhoMaximo)
             {
-                Console.WriteLine(idCliente);
+                //inserindo cliente na fila
+                filaPedidos.Enqueue(idCliente);
+                Console.WriteLine("\nPedido recebido, aguarde atendimento.");
+                Console.WriteLine("\nFILA:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+
+            } else
+            {
+                Console.WriteLine("\nProduto esgotado, pedido inserido na fila de espera.");
+                filaReservaPedidos.Enqueue(idCliente);
+
+                Console.WriteLine("\nFILA DE ESPERA:");
+                foreach (object id in filaReservaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
             }
+
+            //limpa console e reexibe menu
+            Thread.Sleep(2000);
+            Console.Clear();
+            opcoesMenu();
+        }
+
+        void AtenderProximoPedido()
+        {
+            if (filaPedidos.Count > 0)
+            {
+                object dequeue = filaPedidos.Dequeue();
+                Console.WriteLine("O proximo pedido é o " + dequeue);
+
+                Console.WriteLine("\nA fila atualizada é:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+            } else
+            {
+                Console.WriteLine("A fila está vazia.");
+            }
+
+
+            //limpa console e reexibe menu
+            Thread.Sleep(3000);
+            Console.Clear();
+            opcoesMenu();
+        }
+
+        void ExibirProximoPedido()
+        {
+            object proximoPedido = filaPedidos.Peek();
+            Console.WriteLine($"O proximo pedido é o {proximoPedido}.");
+
+            Console.WriteLine("\nA fila atualizada é:");
+            foreach (object id in filaPedidos)
+            {
+                Console.WriteLine(id);
+            }
+
+            //limpa console e reexibe menu
+            Thread.Sleep(3000);
+            Console.Clear();
+            opcoesMenu();
+        }
+
+        void VerificarTamanhoFila()
+        {
+            if (filaPedidos.Count >= tamanhoMaximo)
+            {
+                Console.WriteLine("A fila alcançou seu limite.");
+                Console.WriteLine("\nA fila atualizada é:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+
+            }
+            else if (filaPedidos.Count == 0)
+            {
+                Console.WriteLine("A fila está vazia.");
+
+            } 
+            else
+            {
+                Console.WriteLine($"Temos {filaPedidos.Count} pedidos na fila para atendimento e {filaReservaPedidos.Count} na fila de espera.");
+
+                Console.WriteLine("\nA fila atualizada é:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+            }
+
 
             //limpa console e reexibe menu
             Thread.Sleep(4000);
