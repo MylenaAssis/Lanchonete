@@ -9,7 +9,6 @@ class Program
         
         Queue<object> filaPedidos = new Queue<object>();
         Queue<object> filaReservaPedidos = new Queue<object>();
-        int tamanho = filaPedidos.Count();
         int tamanhoMaximo = 3;
 
         void opcoesMenu()
@@ -56,8 +55,9 @@ class Program
         void InserirPedidoNome()
         {
             Console.WriteLine("Insira o nome do Cliente: ");
-            string nome = Console.ReadLine()!;
-            if (tamanho < tamanhoMaximo)
+            object nome = Console.ReadLine()!;
+
+            if (filaPedidos.Count < tamanhoMaximo)
             {
                 filaPedidos.Enqueue(nome);
                 Console.WriteLine("\nPedido recebido, aguarde atendimento.");
@@ -89,9 +89,9 @@ class Program
         void InserirPedido()
         {
             Random random = new Random();
-            int idCliente = random.Next();
+            object idCliente = random.Next();
             
-            if (tamanho < tamanhoMaximo)
+            if (filaPedidos.Count < tamanhoMaximo)
             {
                 //inserindo cliente na fila
                 filaPedidos.Enqueue(idCliente);
@@ -146,13 +146,19 @@ class Program
 
         void ExibirProximoPedido()
         {
-            object proximoPedido = filaPedidos.Peek();
-            Console.WriteLine($"O proximo pedido é o {proximoPedido}.");
-
-            Console.WriteLine("\nA fila atualizada é:");
-            foreach (object id in filaPedidos)
+            if (filaPedidos.Count > 0)
             {
-                Console.WriteLine(id);
+                object proximoPedido = filaPedidos.Peek();
+                Console.WriteLine($"O proximo pedido é o {proximoPedido}.");
+
+                Console.WriteLine("\nA fila atualizada é:");
+                foreach (object id in filaPedidos)
+                {
+                    Console.WriteLine(id);
+                }
+            } else
+            {
+                Console.WriteLine("Sem mais pedidos - fila vazia.");
             }
 
             //limpa console e reexibe menu
