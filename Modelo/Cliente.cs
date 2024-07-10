@@ -1,5 +1,4 @@
-﻿/*
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +12,8 @@ namespace FilaPedidos
         private string Nome { get; set; }
         private bool ParticipanteClube { get; set; }
 
-        public void ExibirCadastroCliente()
-        {
-            Console.WriteLine($"Nome: {Nome}.");
-            Console.WriteLine($"CPF: {Cpf}");
-            if ( ParticipanteClube )
-            {
-                Console.WriteLine("Faz parte do clube fidelidade.");
-            } else
-            {
-                Console.WriteLine("Ainda não participa do clube fidelidade.");
-            }
-        }
+        public void BuscaCadastroCliente(string cpf);
+        public void ExibirCadastroCliente();
+        public void CadastrarNovoCliente();
     }
 }
-*/
