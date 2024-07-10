@@ -14,11 +14,11 @@ class Program
         void opcoesMenu()
         {
             Console.WriteLine("\n*****MENU*****");
-            Console.WriteLine("1. Inserir pedido na fila pelo id");
+            Console.WriteLine("1. Inserir pedido na fila");
             Console.WriteLine("2. Atender próximo pedido");
             Console.WriteLine("3. Exibir próximo pedido");
             Console.WriteLine("4. Verificar tamanho da fila");
-            Console.WriteLine("4. Sair");
+            Console.WriteLine("5. Sair");
             Console.WriteLine("\nSelecione uma opção: ");
             string opcaoSelecionada = Console.ReadLine()!;
 
