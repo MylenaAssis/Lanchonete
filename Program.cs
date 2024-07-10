@@ -14,12 +14,11 @@ class Program
         void opcoesMenu()
         {
             Console.WriteLine("\n*****MENU*****");
-            Console.WriteLine("\n1. Inserir pedido na fila pelo nome");
-            Console.WriteLine("2. Inserir pedido na fila pelo id");
-            Console.WriteLine("3. Atender próximo pedido");
-            Console.WriteLine("4. Exibir próximo pedido");
-            Console.WriteLine("5. Verificar tamanho da fila");
-            Console.WriteLine("6. Sair");
+            Console.WriteLine("1. Inserir pedido na fila pelo id");
+            Console.WriteLine("2. Atender próximo pedido");
+            Console.WriteLine("3. Exibir próximo pedido");
+            Console.WriteLine("4. Verificar tamanho da fila");
+            Console.WriteLine("4. Sair");
             Console.WriteLine("\nSelecione uma opção: ");
             string opcaoSelecionada = Console.ReadLine()!;
 
@@ -28,21 +27,18 @@ class Program
             switch (opcaoSelecionadaNumerica)
             {
                 case 1:
-                    InserirPedidoNome();
-                    break;
-                case 2:
                     InserirPedido();
                     break;
-                case 3:
+                case 2:
                     AtenderProximoPedido();
                     break;
-                case 4:
+                case 3:
                     ExibirProximoPedido();
                     break;
-                case 5:
+                case 4:
                     VerificarTamanhoFila();
                     break;
-                case 6:
+                case 5:
                     Console.WriteLine("\nTchau! =)");
                     break;
                 default:
@@ -50,40 +46,6 @@ class Program
                     break;
             }
 
-        }
-
-        void InserirPedidoNome()
-        {
-            Console.WriteLine("Insira o nome do Cliente: ");
-            object nome = Console.ReadLine()!;
-
-            if (filaPedidos.Count < tamanhoMaximo)
-            {
-                filaPedidos.Enqueue(nome);
-                Console.WriteLine("\nPedido recebido, aguarde atendimento.");
-
-                Console.WriteLine("\nFILA:");
-                foreach (object id in filaPedidos)
-                {
-                    Console.WriteLine(id);
-                }
-            }
-            else
-            {
-                Console.WriteLine("\nProduto esgotado, pedido inserido na fila de espera.");
-                filaReservaPedidos.Enqueue(nome);
-
-                Console.WriteLine("\nFILA DE ESPERA:");
-                foreach (object id in filaReservaPedidos)
-                {
-                    Console.WriteLine(id);
-                }
-            }
-
-            //limpa console e reexibe menu
-            Thread.Sleep(2000);
-            Console.Clear();
-            opcoesMenu();
         }
 
         void InserirPedido()
@@ -114,10 +76,8 @@ class Program
                 }
             }
 
-            //limpa console e reexibe menu
-            Thread.Sleep(2000);
-            Console.Clear();
-            opcoesMenu();
+            ReexibeMenu(3000);
+
         }
 
         void AtenderProximoPedido()
@@ -137,11 +97,7 @@ class Program
                 Console.WriteLine("A fila está vazia.");
             }
 
-
-            //limpa console e reexibe menu
-            Thread.Sleep(3000);
-            Console.Clear();
-            opcoesMenu();
+            ReexibeMenu(3000);
         }
 
         void ExibirProximoPedido()
@@ -161,10 +117,7 @@ class Program
                 Console.WriteLine("Sem mais pedidos - fila vazia.");
             }
 
-            //limpa console e reexibe menu
-            Thread.Sleep(3000);
-            Console.Clear();
-            opcoesMenu();
+            ReexibeMenu(3000);
         }
 
         void VerificarTamanhoFila()
@@ -195,9 +148,13 @@ class Program
                 }
             }
 
+            ReexibeMenu(4000);
 
-            //limpa console e reexibe menu
-            Thread.Sleep(4000);
+        }
+
+        void ReexibeMenu(int tempoMilissegundos)
+        {
+            Thread.Sleep(tempoMilissegundos);
             Console.Clear();
             opcoesMenu();
         }
