@@ -8,5 +8,19 @@ namespace FilaPedidos.Modelo
 {
     internal class Senha
     {
+        Random numeroAleatorio = new Random();
+        private int senha;
+
+        public Senha()
+        {
+            this.senha = numeroAleatorio.Next();
+            Console.WriteLine(senha);
+        }
+
+        public void GerarSenhaRetirada()
+        {
+            Console.WriteLine($"A senha para retirada do pedido é: {senha}");
+        }
+
     }
 }
